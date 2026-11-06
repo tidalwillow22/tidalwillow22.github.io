@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>红果短剧创作服务平台-短剧创作平台_短剧剧本投稿与创作者服务入口</title>
+<meta name="description" content="红果短剧创作服务平台面向短剧创作者，提供剧本投稿、创作指引、题材参考与创作者服务入口，帮助编剧与制作团队了解平台创作方向、准备投稿材料并跟进作品进展。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23c8341f'/%3E%3Cpath d='M22 18h20a4 4 0 0 1 4 4v20a4 4 0 0 1-4 4H22a4 4 0 0 1-4-4V22a4 4 0 0 1 4-4z' fill='none' stroke='%23fff' stroke-width='3'/%3E%3Cpath d='M28 25l12 7-12 7z' fill='%23fff'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --red:#c8341f;
+    --red-deep:#9e2715;
+    --ink:#221c19;
+    --ink-soft:#5c514b;
+    --paper:#fdf9f4;
+    --paper-2:#f6ede3;
+    --line:#e6d8c9;
+    --gold:#b8863b;
+    --radius:14px;
+    --maxw:1120px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC",system-ui,sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.75;
+    font-size:16px;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+  img,svg{max-width:100%;display:block;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+  .skip{position:absolute;left:-9999px;top:0;background:var(--red);color:#fff;padding:10px 16px;z-index:99;}
+  .skip:focus{left:16px;top:12px;}
+
+  /* ---------- header ---------- */
+  header.site{
+    position:sticky;top:0;z-index:50;
+    background:rgba(253,249,244,.94);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .head-inner{
+    display:flex;align-items:center;gap:24px;
+    height:68px;
+  }
+  .brand{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+  .brand-mark{
+    width:38px;height:38px;border-radius:11px;
+    background:linear-gradient(145deg,#e0472e,#a52715);
+    display:grid;place-items:center;
+    box-shadow:0 4px 12px rgba(200,52,31,.28);
+  }
+  .brand-mark svg{width:20px;height:20px;}
+  .brand-text{
+    font-weight:800;font-size:17px;letter-spacing:.2px;color:var(--ink);
+    white-space:nowrap;
+  }
+  nav.main{margin-left:auto;display:flex;gap:6px;align-items:center;flex-wrap:wrap;}
+  nav.main a{
+    font-size:14.5px;color:var(--ink-soft);padding:8px 12px;border-radius:9px;
+    transition:background .18s,color .18s;
+  }
+  nav.main a:hover,nav.main a:focus-visible{background:var(--paper-2);color:var(--red);}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    border-radius:11px;padding:11px 22px;font-size:15px;font-weight:600;
+    border:1px solid transparent;cursor:pointer;transition:transform .15s,box-shadow .18s,background .18s;
+    font-family:inherit;
+  }
+  .btn-primary{
+    background:linear-gradient(140deg,#d63c24,#a52715);
+    color:#fff;box-shadow:0 6px 16px rgba(200,52,31,.28);
+  }
+  .btn-primary:hover{transform:translateY(-1px);box-shadow:0 9px 20px rgba(200,52,31,.34);}
+  .btn-ghost{background:#fff;border-color:var(--line);color:var(--ink);}
+  .btn-ghost:hover{border-color:var(--red);color:var(--red);}
+  .head-cta{display:flex;gap:10px;align-items:center;}
+  @media(max-width:900px){
+    .head-inner{height:auto;padding-top:12px;padding-bottom:12px;flex-wrap:wrap;gap:12px;}
+    nav.main{margin-left:0;order:3;width:100%;overflow-x:auto;flex-wrap:nowrap;padding-bottom:2px;}
+    nav.main a{white-space:nowrap;}
+    .head-cta{margin-left:auto;}
+  }
+  @media(max-width:520px){
+    .brand-text{font-size:15px;}
+    .head-cta .btn{padding:9px 14px;font-size:13.5px;}
+  }
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;overflow:hidden;
+    background:
+      radial-gradient(900px 420px at 88% -10%,rgba(200,52,31,.13),transparent 62%),
+      linear-gradient(180deg,#fff8f0 0%,var(--paper) 100%);
+    border-bottom:1px solid var(--line);
+  }
+  .hero-inner{
+    display:grid;grid-template-columns:1.08fr .92fr;gap:52px;align-items:center;
+    padding:64px 0 68px;
+  }
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:13px;font-weight:600;color:var(--red-deep);
+    background:#fff;border:1px solid #f0d9cc;border-radius:99px;
+    padding:5px 13px;letter-spacing:.4px;
+  }
+  .eyebrow i{width:6px;height:6px;border-radius:50%;background:var(--red);display:block;}
+  h1{
+    font-size:clamp(27px,4.1vw,42px);
+    line-height:1.28;font-weight:800;letter-spacing:-.3px;
+    margin:18px 0 16px;color:var(--ink);
+  }
+  h1 em{font-style:normal;color:var(--red);}
+  .lede{
+    font-size:16.5px;color:var(--ink-soft);max-width:34em;margin:0 0 26px;
+  }
+  .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:22px;}
+  .hero-meta{
+    display:flex;gap:26px;flex-wrap:wrap;font-size:13.5px;color:var(--ink-soft);
+    border-top:1px dashed var(--line);padding-top:18px;max-width:36em;
+  }
+  .hero-meta b{display:block;color:var(--ink);font-size:15px;font-weight:700;}
+
+  .art-card{
+    background:#fff;border:1px solid var(--line);border-radius:20px;
+    box-shadow:0 18px 44px rgba(120,70,40,.13);
+    padding:18px;position:relative;
+  }
+  .art-head{display:flex;align-items:center;gap:8px;margin-bottom:12px;}
+  .dot{width:9px;height:9px;border-radius:50%;}
+  .art-title{font-size:12.5px;color:var(--ink-soft);margin-left:6px;letter-spacing:.3px;}
+  .art-frame{border-radius:12px;overflow:hidden;background:#2a1f1b;}
+  .art-foot{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px;
+  }
+  .art-foot div{
+    background:var(--paper-2);border-radius:9px;padding:9px 10px;font-size:12px;color:var(--ink-soft);
+  }
+  .art-foot b{display:block;font-size:14px;color:var(--ink);}
+  .badge-float{
+    position:absolute;top:-14px;right:16px;
+    background:var(--gold);color:#fff;font-size:12px;font-weight:700;
+    padding:6px 13px;border-radius:99px;letter-spacing:.5px;
+    box-shadow:0 6px 14px rgba(184,134,59,.36);
+  }
+  @media(max-width:900px){
+    .hero-inner{grid-template-columns:1fr;gap:34px;padding:40px 0 46px;}
+    .hero-meta{gap:18px;}
+  }
+
+  /* ---------- section base ---------- */
+  section{padding:64px 0;}
+  .sec-head{max-width:46em;margin-bottom:34px;}
+  .sec-tag{
+    font-size:12.5px;font-weight:700;color:var(--red);letter-spacing:1.6px;
+    text-transform:uppercase;margin-bottom:10px;
+  }
+  h2{
+    font-size:clamp(22px,2.8vw,30px);line-height:1.35;font-weight:800;
+    margin:0 0 12px;letter-spacing:-.2px;
+  }
+  .sec-head p{margin:0;color:var(--ink-soft);font-size:15.5px;}
+
+  /* ---------- steps ---------- */
+  .steps{background:linear-gradient(180deg,var(--paper-2),#fbf4ec);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .step-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+  .step{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    padding:22px 20px;position:relative;
+  }
+  .step-num{
+    font-size:12px;font-weight:800;color:#fff;background:var(--red);
+    width:26px;height:26px;border-radius:8px;display:grid;place-items:center;
+    margin-bottom:12px;letter-spacing:.5px;
+  }
+  .step h3{font-size:16px;margin:0 0 8px;font-weight:700;}
+  .step p{margin:0;font-size:14px;color:var(--ink-soft);line-height:1.7;}
+  @media(max-width:900px){.step-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:520px){.step-grid{grid-template-columns:1fr;}}
+
+  /* ---------- topics ---------- */
+  .topic-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .topic{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    padding:0;overflow:hidden;display:flex;flex-direction:column;
+    transition:transform .18s,box-shadow .18s;
+  }
+  .topic:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(120,70,40,.12);}
+  .topic-cover{height:112px;position:relative;display:grid;place-items:end start;padding:14px 16px;}
+  .topic-cover span{
+    font-size:12px;font-weight:700;color:#fff;background:rgba(0,0,0,.26);
+    padding:3px 10px;border-radius:99px;backdrop-filter:blur(2px);
+  }
+  .topic-body{padding:18px 20px 22px;flex:1;display:flex;flex-direction:column;}
+  .topic h3{font-size:17px;margin:0 0 8px;font-weight:700;}
+  .topic p{margin:0 0 14px;font-size:14px;color:var(--ink-soft);flex:1;}
+  .topic ul{margin:0;padding-left:18px;font-size:13.5px;color:var(--ink-soft);}
+  .topic li{margin-bottom:5px;}
+  .c1{background:linear-gradient(135deg,#d6452c,#8e2312);}
+  .c2{background:linear-gradient(135deg,#c9903f,#8a5f1f);}
+  .c3{background:linear-gradient(135deg,#5c6b8a,#2f3a52);}
+  @media(max-width:900px){.topic-grid{grid-template-columns:1fr;}}
+
+  /* ---------- guide / two col ---------- */
+  .guide{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .guide-inner{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;}
+  .checklist{list-style:none;padding:0;margin:0;}
+  .checklist li{
+    display:flex;gap:12px;padding:14px 0;border-bottom:1px dashed var(--line);
+    font-size:14.8px;color:var(--ink-soft);
+  }
+  .checklist li:last-child{border-bottom:none;}
+  .checklist .ck{
+    flex-shrink:0;width:22px;height:22px;border-radius:7px;background:#fbe9e2;
+    display:grid;place-items:center;margin-top:2px;
+  }
+  .checklist .ck svg{width:13px;height:13px;stroke:var(--red);}
+  .checklist b{color:var(--ink);font-weight:700;display:block;margin-bottom:2px;font-size:15px;}
+  .note-box{
+    background:var(--paper-2);border-radius:var(--radius);padding:24px 24px 26px;
+    border:1px solid var(--line);
+  }
+  .note-box h3{font-size:16px;margin:0 0 10px;font-weight:700;}
+  .note-box p{margin:0 0 12px;font-size:14px;color:var(--ink-soft);}
+  .note-box p:last-child{margin-bottom:0;}
+  .note-box .lead-num{color:var(--red);font-weight:800;}
+  @media(max-width:900px){.guide-inner{grid-template-columns:1fr;gap:30px;}}
+
+  /* ---------- faq ---------- */
+  .faq-list{display:grid;gap:12px;max-width:52em;}
+  details{
+    background:#fff;border:1px solid var(--line);border-radius:12px;padding:0 20px;
+  }
+  details[open]{border-color:#eccbbd;box-shadow:0 8px 20px rgba(120,70,40,.07);}
+  summary{
+    cursor:pointer;list-style:none;padding:16px 0;font-weight:700;font-size:15.5px;
+    display:flex;align-items:center;justify-content:space-between;gap:16px;
+  }
+  summary::-webkit-details-marker{display:none;}
+  summary::after{
+    content:"+";font-weight:400;font-size:20px;color:var(--red);line-height:1;
+    transition:transform .2s;
+  }
+  details[open] summary::after{content:"−";}
+  details p{margin:0 0 18px;font-size:14.5px;color:var(--ink-soft);}
+
+  /* ---------- cta band ---------- */
+  .cta-band{
+    background:linear-gradient(130deg,#b32d18,#7d1c0e);
+    color:#fff;border-radius:20px;padding:44px 40px;
+    display:flex;align-items:center;gap:32px;flex-wrap:wrap;justify-content:space-between;
+    position:relative;overflow:hidden;
+  }
+  .cta-band::after{
+    content:"";position:absolute;right:-60px;top:-60px;width:240px;height:240px;
+    border-radius:50%;background:rgba(255,255,255,.07);
+  }
+  .cta-band h2{color:#fff;margin:0 0 8px;font-size:clamp(20px,2.6vw,26px);}
+  .cta-band p{margin:0;color:rgba(255,255,255,.82);font-size:15px;max-width:34em;}
+  .cta-band .btn-primary{background:#fff;color:var(--red-deep);box-shadow:0 8px 20px rgba(0,0,0,.2);}
+  .cta-band .btn-outline{background:transparent;border:1px solid rgba(255,255,255,.55);color:#fff;}
+  .cta-band .btn-outline:hover{background:rgba(255,255,255,.12);}
+  .cta-btns{display:flex;gap:12px;flex-wrap:wrap;position:relative;z-index:2;}
+
+  /* ---------- footer ---------- */
+  footer{
+    background:#241b17;color:#cbbcb2;padding:48px 0 30px;margin-top:20px;
+    border-top:4px solid var(--red);
+  }
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:36px;}
+  .foot-brand{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+  .foot-brand .brand-mark{box-shadow:none;}
+  .foot-brand span{color:#fff;font-weight:800;font-size:16px;}
+  footer p{font-size:13.5px;line-height:1.8;margin:0 0 12px;color:#a99a90;}
+  footer h4{color:#fff;font-size:13.5px;margin:0 0 14px;letter-spacing:1px;font-weight:700;}
+  footer ul{list-style:none;padding:0;margin:0;}
+  footer li{margin-bottom:9px;font-size:13.5px;}
+  footer a{color:#cbbcb2;transition:color .18s;}
+  footer a:hover{color:#fff;}
+  .foot-bottom{
+    border-top:1px solid #3a2c26;margin-top:34px;padding-top:20px;
+    font-size:12.5px;color:#8d7e75;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  }
+  @media(max-width:900px){.foot-grid{grid-template-columns:1fr 1fr;gap:28px;}}
+  @media(max-width:520px){.foot-grid{grid-template-columns:1fr;}}
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">跳至主要内容</a>
+
+<header class="site">
+  <div class="wrap head-inner">
+    <a class="brand" href="#top" aria-label="红果短剧创作服务平台 首页">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3.5" y="3.5" width="17" height="17" rx="4" stroke="#fff" stroke-width="1.8"/><path d="M10 8.5l6 3.5-6 3.5z" fill="#fff"/></svg>
+      </span>
+      <span class="brand-text">红果短剧创作服务平台</span>
+    </a>
+    <nav class="main" aria-label="主导航">
+      <a href="#steps">投稿流程</a>
+      <a href="#topics">题材参考</a>
+      <a href="#guide">创作准备</a>
+      <a href="#faq">常见问题</a>
+    </nav>
+    <div class="head-cta">
+      <a class="btn btn-primary" href="#submit">开始投稿</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- HERO -->
+  <section class="hero" id="top" style="padding:0;">
+    <div class="wrap hero-inner">
+      <div>
+        <span class="eyebrow"><i></i>创作者服务 · 剧本与制作团队入口</span>
+        <h1>红果短剧创作服务平台</h1>
+        <p class="lede">面向短剧编剧、导演与制作团队的一站式创作服务入口。在这里了解平台创作方向、准备投稿材料、按流程提交剧本与成片方案，并跟进后续沟通进展。</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#submit">提交剧本或方案</a>
+          <a class="btn btn-ghost" href="#topics">查看题材参考</a>
+        </div>
+        <div class="hero-meta">
+          <div><b>4 步</b>标准投稿流程</div>
+          <div><b>3 类</b>题材方向参考</div>
+          <div><b>1 套</b>材料准备清单</div>
+        </div>
+      </div>
+
+      <div class="art-card">
+        <span class="badge-float">创作服务入口</span>
+        <div class="art-head">
+          <span class="dot" style="background:#e0472e;"></span>
+          <span class="dot" style="background:#d9a44b;"></span>
+          <span class="dot" style="background:#7d8aa5;"></span>
+          <span class="art-title">项目工作台 · 示意</span>
+        </div>
+        <div class="art-frame">
+          <svg viewBox="0 0 420 250" role="img" aria-label="短剧项目创作流程示意插画">
+            <defs>
+              <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#e3543a"/><stop offset="1" stop-color="#8e2312"/>
+              </linearGradient>
+            </defs>
+            <rect width="420" height="250" fill="#2a1f1b"/>
+            <rect x="24" y="26" width="180" height="92" rx="10" fill="#3a2b25"/>
+            <rect x="24" y="26" width="180" height="92" rx="10" fill="url(#g1)" opacity=".22"/>
+            <rect x="40" y="46" width="86" height="9" rx="4.5" fill="#f0b9a8"/>
+            <rect x="40" y="64" width="128" height="7" rx="3.5" fill="#7c6558"/>
+            <rect x="40" y="79" width="104" height="7" rx="3.5" fill="#7c6558"/>
+            <rect x="40" y="98" width="56" height="10" rx="5" fill="#e3543a"/>
+            <rect x="216" y="26" width="180" height="42" rx="10" fill="#3a2b25"/>
+            <rect x="232" y="42" width="64" height="8" rx="4" fill="#d9a44b"/>
+            <rect x="304" y="42" width="76" height="8" rx="4" fill="#5e4a40"/>
+            <rect x="216" y="76" width="180" height="42" rx="10" fill="#3a2b25"/>
+            <rect x="232" y="92" width="86" height="8" rx="4" fill="#e3543a"/>
+            <rect x="326" y="92" width="54" height="8" rx="4" fill="#5e4a40"/>
+            <rect x="24" y="132" width="372" height="1" fill="#4a3830"/>
+            <rect x="24" y="150" width="372" height="34" rx="8" fill="#3a2b25"/>
+            <rect x="24" y="150" width="180" height="34" rx="8" fill="url(#g1)" opacity=".85"/>
+            <rect x="40" y="163" width="70" height="8" rx="4" fill="#fff" opacity=".85"/>
+            <rect x="24" y="196" width="176" height="28" rx="8" fill="#3a2b25"/>
+            <rect x="40" y="206" width="52" height="8" rx="4" fill="#8a7264"/>
+            <rect x="212" y="196" width="184" height="28" rx="8" fill="#3a2b25"/>
+            <rect x="228" y="206" width="72" height="8" rx="4" fill="#8a7264"/>
+            <circle cx="380" cy="210" r="9" fill="url(#g1)"/>
+          </svg>
+        </div>
+        <div class="art-foot">
+          <div><b>剧本</b>大纲与分集</div>
+          <div><b>方案</b>制作与预算</div>
+          <div><b>进展</b>沟通与反馈</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEPS -->
+  <section class="steps" id="steps">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-tag">投稿流程</div>
+        <h2>从准备到提交，四步走完创作入口</h2>
+        <p>红果短剧创作服务平台把投稿拆成可执行的步骤，创作者按顺序准备即可，避免因材料缺失反复沟通。</p>
+      </div>
+      <div class="step-grid">
+        <div class="step">
+          <div class="step-num">01</div>
+          <h3>明确题材与受众</h3>
+          <p>先确定故事类型、目标观众与单集时长，判断作品适配的题材方向，再决定提交剧本还是成片方案。</p>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <h3>整理故事大纲</h3>
+          <p>准备一句话梗概、人物小传与前若干集分集大纲，让审阅方在较短时间内看清故事主线与节奏。</p>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <h3>提交完整材料</h3>
+          <p>按入口提示填写作品信息并上传剧本或样片，注明版权归属与团队构成，保证信息可核对。</p>
+        </div>
+        <div class="step">
+          <div class="step-num">04</div>
+          <h3>跟进沟通进展</h3>
+          <p>提交后留意回复渠道，根据反馈补充材料或调整方案，重要修改建议保留版本记录。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOPICS -->
+  <section id="topics">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-tag">题材参考</div>
+        <h2>三类常见创作方向，供选题时对照</h2>
+        <p>以下方向仅作选题参考，帮助编剧判断故事调性与篇幅安排。具体合作范围以平台沟通结果为准。</p>
+      </div>
+      <div class="topic-grid">
+        <article class="topic">
+          <div class="topic-cover c1"><span>都市情感</span></div>
+          <div class="topic-body">
+            <h3>强冲突、快节奏</h3>
+            <p>以人物关系转折推动剧情，适合单集时长较短、开场即建立矛盾的写法。</p>
+            <ul>
+              <li>开场三分钟内交代核心冲突</li>
+              <li>每集保留一个明确钩子</li>
+              <li>人物动机需前后一致</li>
+            </ul>
+          </div>
+        </article>
+        <article class="topic">
+          <div class="topic-cover c2"><span>家庭生活</span></div>
+          <div class="topic-body">
+            <h3>贴近日常、情绪真实</h3>
+            <p>从生活细节切入，靠人物选择与情感积累留住观众，适合中长线叙事。</p>
+            <ul>
+              <li>细节要具体可感</li>
+              <li>避免过度依赖巧合</li>
+              <li>结尾给出情绪落点</li>
+            </ul>
+          </div>
+        </article>
+        <article class="topic">
+          <div class="topic-cover c3"><span>悬疑推理</span></div>
+          <div class="topic-body">
+            <h3>信息克制、线索清晰</h3>
+            <p>围绕一个核心谜题展开，线索投放有节奏，适合分集制造悬念的创作方式。</p>
+            <ul>
+              <li>谜题与人物动机绑定</li>
+              <li>线索前后可回溯</li>
+              <li>避免为反转牺牲逻辑</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- GUIDE -->
+  <section class="guide" id="guide">
+    <div class="wrap guide-inner">
+      <div>
+        <div class="sec-head" style="margin-bottom:22px;">
+          <div class="sec-tag">创作准备</div>
+          <h2>提交前对照这份材料清单</h2>
+          <p>材料齐全能显著缩短沟通周期。红果短剧创作服务平台建议在提交前逐项确认。</p>
+        </div>
+        <ul class="checklist">
+          <li>
+            <span class="ck" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>
+            <span><b>故事梗概</b>一句话讲清主角、目标与阻碍，控制在百字以内。</span>
+          </li>
+          <li>
+            <span class="ck" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>
+            <span><b>人物设定</b>主要角色各写清身份、性格与核心诉求。</span>
+          </li>
+          <li>
+            <span class="ck" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>
+            <span><b>分集大纲</b>说明每集事件与结尾钩子，便于判断节奏。</span>
+          </li>
+          <li>
+            <span class="ck" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>
+            <span><b>版权说明</b>确认作品为原创或已获授权，注明改编来源。</span>
+          </li>
+          <li>
+            <span class="ck" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>
+            <span><b>团队信息</b>列出编剧、导演与制作方，方便对接具体事务。</span>
+          </li>
+        </ul>
+      </div>
+      <aside class="note-box">
+        <h3>关于平台说明</h3>
+        <p>红果短剧创作服务平台目前提供投稿入口、创作指引与题材参考等公开信息，帮助创作者了解方向并完成材料准备。</p>
+        <p>平台对题材方向、篇幅与材料格式的要求，会随沟通与项目阶段调整，请以实际反馈为准。页面所列流程与清单为常规建议，不构成对合作结果或上线安排的承诺。</p>
+        <p><span class="lead-num">提示：</span>如需下载材料模板，可在入口开放后获取；当前下载入口暂未开放，请先按清单自行整理。</p>
+        <p style="margin-top:16px;">
+          <a class="btn btn-ghost" href="#" data-download-placeholder="true" aria-disabled="true" tabindex="-1" style="pointer-events:none;opacity:.85;">下载</a>
+        </p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-tag">常见问题</div>
+        <h2>创作者最常问的几件事</h2>
+        <p>以下回答基于平台公开的服务范围整理，具体项目沟通请以实际回复为准。</p>
+      </div>
+      <div class="faq-list">
+        <details open>
+          <summary>平台接受哪类作品投稿？</summary>
+          <p>红果短剧创作服务平台主要面向短剧剧本与成片方案，创作者可按题材方向准备大纲、人物设定与分集内容。若作品已有样片，也可一并说明制作情况。</p>
+        </details>
+        <details>
+          <summary>没有完整剧本可以先投大纲吗？</summary>
+          <p>可以先提交梗概与分集大纲，便于审阅方判断故事方向。后续如需补充完整剧本，会在沟通过程中提出，建议保留各版本修改记录。</p>
+        </details>
+        <details>
+          <summary>提交后多久会有反馈？</summary>
+          <p>反馈时间与作品数量、材料完整度相关，平台不承诺固定时限。材料越完整、信息越清晰，通常越便于推进后续沟通。</p>
+        </details>
+        <details>
+          <summary>素材模板在哪里获取？</summary>
+          <p>材料模板将在入口开放后提供下载。当前页面下载按钮暂不可用，可先参照上方清单自行整理梗概、人物设定与分集大纲。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="submit" style="padding-top:0;">
+    <div class="wrap">
+      <div class="cta-band">
+        <div>
+          <h2>准备好材料，就从这里开始</h2>
+          <p>红果短剧创作服务平台集中承载投稿入口与创作指引。先对照清单整理材料，再按流程提交，沟通会更有针对性。</p>
+        </div>
+        <div class="cta-btns">
+          <a class="btn btn-primary" href="#steps">查看投稿流程</a>
+          <a class="btn btn-outline" href="#guide">核对材料清单</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3.5" y="3.5" width="17" height="17" rx="4" stroke="#fff" stroke-width="1.8"/><path d="M10 8.5l6 3.5-6 3.5z" fill="#fff"/></svg>
+          </span>
+          <span>红果短剧创作服务平台</span>
+        </div>
+        <p>面向短剧创作者的创作服务入口，提供投稿流程说明、题材方向参考与材料准备清单，帮助编剧与制作团队更有条理地推进作品。</p>
+      </div>
+      <div>
+        <h4>页面导航</h4>
+        <ul>
+          <li><a href="#steps">投稿流程</a></li>
+          <li><a href="#topics">题材参考</a></li>
+          <li><a href="#guide">创作准备</a></li>
+          <li><a href="#faq">常见问题</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>创作提示</h4>
+        <ul>
+          <li>先写清一句话梗概</li>
+          <li>分集结尾留钩子</li>
+          <li>保留版权与版本记录</li>
+          <li>材料齐全再提交</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>红果短剧创作服务平台 · 创作服务入口</span>
+      <span>页面信息以平台实际沟通为准</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+  </html>
