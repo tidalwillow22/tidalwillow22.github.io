@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日大赛黑料在线入口-每日大赛黑料在线入口导航_大赛黑料在线查看与入口汇总</title>
+<meta name="description" content="每日大赛黑料在线入口导航页，汇总当日大赛黑料的在线查看方式、入口分类与使用说明，帮助访问者快速找到每日大赛黑料在线入口并了解查看要点。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2314171f'/%3E%3Cpath d='M20 42l10-22 8 14 6-9 4 17z' fill='%23ffb638'/%3E%3Ccircle cx='44' cy='22' r='4' fill='%23ff5a5f'/%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#0e1016;
+  --bg2:#151925;
+  --card:#1a2030;
+  --line:#2a3244;
+  --txt:#e8ecf4;
+  --sub:#9aa6bd;
+  --acc:#ffb638;
+  --acc2:#ff5a5f;
+  --ok:#3ddc97;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--txt);
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",system-ui,sans-serif;
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+img,svg{display:block;max-width:100%}
+.wrap{width:min(1160px,92vw);margin:0 auto}
+
+/* header */
+header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(14,16,22,.88);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:17px;letter-spacing:.3px}
+.logo .mark{width:34px;height:34px;flex:0 0 34px}
+.logo span{white-space:nowrap}
+nav ul{display:flex;gap:26px;list-style:none;font-size:14.5px;color:var(--sub)}
+nav a:hover{color:var(--acc)}
+.nav .cta{
+  background:linear-gradient(135deg,var(--acc),#ff8a3d);
+  color:#1a1206;font-weight:700;font-size:14px;
+  padding:9px 18px;border-radius:999px;
+}
+.menu-btn{display:none;background:none;border:1px solid var(--line);color:var(--txt);border-radius:8px;padding:7px 11px;font-size:14px}
+
+/* hero */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.hero::before{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(600px 300px at 82% 10%,rgba(255,182,56,.16),transparent 70%),
+    radial-gradient(500px 260px at 8% 90%,rgba(255,90,95,.12),transparent 70%);
+}
+.hero-inner{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center;padding:64px 0 60px}
+.badge{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:13px;color:var(--acc);
+  border:1px solid rgba(255,182,56,.35);
+  background:rgba(255,182,56,.08);
+  padding:5px 13px;border-radius:999px;margin-bottom:20px;
+}
+.badge i{width:7px;height:7px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 4px rgba(61,220,151,.15)}
+h1{font-size:clamp(27px,4vw,44px);line-height:1.28;font-weight:800;letter-spacing:.5px}
+h1 em{font-style:normal;color:var(--acc)}
+.hero p.lead{color:var(--sub);font-size:15.5px;margin-top:18px;max-width:38em}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}
+.btn-primary{
+  display:inline-flex;align-items:center;gap:9px;
+  background:linear-gradient(135deg,var(--acc),#ff8a3d);
+  color:#1a1206;font-weight:800;font-size:15px;
+  padding:13px 26px;border-radius:12px;
+  box-shadow:0 10px 26px rgba(255,182,56,.22);
+}
+.btn-ghost{
+  display:inline-flex;align-items:center;gap:9px;
+  border:1px solid var(--line);color:var(--txt);
+  font-size:15px;font-weight:600;
+  padding:13px 24px;border-radius:12px;background:var(--bg2);
+}
+.btn-ghost[aria-disabled="true"]{opacity:.75;cursor:not-allowed}
+.hero-facts{display:flex;gap:30px;margin-top:34px;flex-wrap:wrap}
+.hero-facts div{font-size:13px;color:var(--sub)}
+.hero-facts strong{display:block;font-size:21px;color:var(--txt);font-weight:800;letter-spacing:.4px}
+
+.hero-card{
+  background:linear-gradient(160deg,#1c2334,#141925);
+  border:1px solid var(--line);border-radius:20px;
+  padding:22px;box-shadow:0 24px 60px rgba(0,0,0,.4);
+}
+.hero-card h2{font-size:15px;font-weight:700;display:flex;align-items:center;gap:8px;margin-bottom:16px}
+.hero-card h2::before{content:"";width:4px;height:16px;border-radius:2px;background:var(--acc2)}
+.board-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.board-list li{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  background:#111725;border:1px solid #232c3e;border-radius:12px;
+  padding:11px 14px;font-size:14px;
+}
+.board-list .tag{font-size:11.5px;color:var(--acc);border:1px solid rgba(255,182,56,.3);border-radius:6px;padding:1px 7px}
+.board-list .no{color:var(--sub);font-size:12.5px}
+.hero-card .note{margin-top:14px;font-size:12.5px;color:var(--sub);line-height:1.6}
+
+/* sections */
+section{padding:62px 0}
+.section-head{max-width:640px;margin-bottom:34px}
+.kicker{color:var(--acc);font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase}
+.section-head h2{font-size:clamp(21px,2.6vw,29px);font-weight:800;margin-top:8px;line-height:1.35}
+.section-head p{color:var(--sub);font-size:15px;margin-top:12px}
+
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:16px;
+  padding:24px;transition:transform .2s,border-color .2s;
+}
+.card:hover{transform:translateY(-3px);border-color:#3a4459}
+.card .ico{width:42px;height:42px;margin-bottom:16px}
+.card h3{font-size:17px;font-weight:700;margin-bottom:9px}
+.card p{font-size:14.2px;color:var(--sub)}
+.card ul{list-style:none;margin-top:14px;font-size:13.5px;color:var(--sub)}
+.card ul li{padding-left:16px;position:relative;margin-top:6px}
+.card ul li::before{content:"";position:absolute;left:0;top:9px;width:5px;height:5px;border-radius:50%;background:var(--acc)}
+
+/* split */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.steps{list-style:none;counter-reset:s}
+.steps li{
+  counter-increment:s;position:relative;
+  padding:16px 0 16px 56px;border-bottom:1px dashed var(--line);
+}
+.steps li:last-child{border-bottom:0}
+.steps li::before{
+  content:counter(s,decimal-leading-zero);
+  position:absolute;left:0;top:15px;
+  width:38px;height:38px;border-radius:10px;
+  display:grid;place-items:center;
+  background:rgba(255,182,56,.12);color:var(--acc);
+  font-size:14px;font-weight:800;
+}
+.steps b{display:block;font-size:15.5px;margin-bottom:4px}
+.steps span{font-size:13.8px;color:var(--sub)}
+
+.panel{background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:24px}
+.panel h3{font-size:16px;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.panel h3::before{content:"";width:4px;height:15px;border-radius:2px;background:var(--acc)}
+.qa{border-bottom:1px solid #232c3e;padding:12px 0;font-size:14px}
+.qa:last-child{border-bottom:0}
+.qa dt{font-weight:700;color:var(--txt);margin-bottom:4px}
+.qa dd{color:var(--sub);font-size:13.6px}
+
+/* filter */
+.filter-bar{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:24px}
+.chip{
+  border:1px solid var(--line);background:var(--bg2);color:var(--sub);
+  padding:7px 16px;border-radius:999px;font-size:13.5px;cursor:pointer;
+  font-family:inherit;transition:.2s;
+}
+.chip:hover{color:var(--txt);border-color:#3a4459}
+.chip.active{background:var(--acc);border-color:var(--acc);color:#1a1206;font-weight:700}
+.search-box{display:flex;gap:10px;margin-bottom:26px}
+.search-box input{
+  flex:1;background:var(--bg2);border:1px solid var(--line);border-radius:10px;
+  padding:11px 15px;color:var(--txt);font-size:14px;font-family:inherit;outline:none;
+}
+.search-box input:focus{border-color:var(--acc)}
+.search-box button{
+  background:var(--acc);color:#1a1206;border:0;border-radius:10px;
+  padding:0 22px;font-weight:700;font-size:14px;cursor:pointer;font-family:inherit;
+}
+.entry-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.entry{
+  background:var(--card);border:1px solid var(--line);border-radius:14px;
+  padding:18px;display:flex;flex-direction:column;gap:8px;
+}
+.entry .top{display:flex;align-items:center;justify-content:space-between}
+.entry h4{font-size:15.5px;font-weight:700}
+.entry .st{font-size:11.5px;color:var(--ok);border:1px solid rgba(61,220,151,.3);border-radius:6px;padding:1px 7px}
+.entry .st.pending{color:var(--acc);border-color:rgba(255,182,56,.3)}
+.entry p{font-size:13.3px;color:var(--sub);flex:1}
+.entry .meta{font-size:12px;color:#6d7a92;display:flex;justify-content:space-between}
+.empty{grid-column:1/-1;text-align:center;color:var(--sub);font-size:14px;padding:36px 0}
+
+/* notices */
+.notice-list{display:grid;gap:12px}
+.notice{
+  display:grid;grid-template-columns:76px 1fr;gap:18px;align-items:start;
+  background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 20px;
+}
+.notice time{font-size:12.5px;color:var(--acc);font-weight:700;padding-top:2px}
+.notice p{font-size:14px;color:var(--sub)}
+.notice p b{color:var(--txt)}
+
+/* footer */
+footer{border-top:1px solid var(--line);background:#0a0c11;padding:44px 0 30px;margin-top:20px}
+.foot{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:36px}
+.foot h4{font-size:14px;margin-bottom:14px;font-weight:700}
+.foot p,.foot li{font-size:13.3px;color:var(--sub);line-height:1.9}
+.foot ul{list-style:none}
+.foot a:hover{color:var(--acc)}
+.copy{margin-top:32px;padding-top:20px;border-top:1px solid #1b2130;font-size:12.5px;color:#5c6880;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr;padding:44px 0 48px;gap:32px}
+  .grid-3,.entry-grid{grid-template-columns:1fr 1fr}
+  .split{grid-template-columns:1fr;gap:28px}
+  .foot{grid-template-columns:1fr 1fr}
+  nav ul{display:none}
+  nav ul.open{
+    display:flex;flex-direction:column;gap:0;
+    position:absolute;top:100%;left:0;right:0;
+    background:var(--bg2);border-bottom:1px solid var(--line);padding:8px 4vw;
+  }
+  nav ul.open li{padding:11px 0;border-bottom:1px solid #1d2434}
+  .menu-btn{display:block}
+}
+@media(max-width:600px){
+  .grid-3,.entry-grid{grid-template-columns:1fr}
+  .hero-facts{gap:20px}
+  .hero-facts strong{font-size:18px}
+  .foot{grid-template-columns:1fr}
+  .notice{grid-template-columns:1fr;gap:6px}
+  section{padding:46px 0}
+  .search-box{flex-direction:column}
+  .search-box button{padding:11px}
+}
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top">
+      <svg class="mark" viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#1c2334"/>
+        <path d="M18 44l11-24 8 15 6-10 5 19z" fill="#ffb638"/>
+        <circle cx="45" cy="21" r="4.5" fill="#ff5a5f"/>
+      </svg>
+      <span>每日大赛黑料在线入口</span>
+    </a>
+    <nav>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navList">菜单</button>
+      <ul id="navList">
+        <li><a href="#today">今日速览</a></li>
+        <li><a href="#guide">查看指南</a></li>
+        <li><a href="#entries">入口目录</a></li>
+        <li><a href="#faq">常见问题</a></li>
+        <li><a href="#notice">更新公告</a></li>
+      </ul>
+    </nav>
+    <a class="cta" href="#entries">进入入口目录</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap hero-inner">
+      <div>
+        <span class="badge"><i></i>入口导航页 · 持续整理中</span>
+        <h1>每日大赛黑料在线入口</h1>
+        <p class="lead">本页把每日大赛黑料在线入口的相关信息集中在一处：当日可见的内容板块、入口的查看方式、访问前的准备事项，以及更新状态的说明。你无需在多个页面之间来回跳转，先在本页确认信息，再按指引前往对应入口。</p>
+        <div class="hero-actions">
+          <a class="btn-primary" href="#entries">
+            查看入口目录
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn-ghost" href="#guide">阅读查看指南</a>
+        </div>
+        <div class="hero-facts">
+          <div><strong>5</strong>个信息栏目</div>
+          <div><strong>9</strong>条入口条目</div>
+          <div><strong>每日</strong>状态核对</div>
+        </div>
+      </div>
+
+      <aside class="hero-card" aria-label="今日速览">
+        <h2>今日速览</h2>
+        <ul class="board-list">
+          <li><span>大赛日程与场次速览</span><span class="no">01</span></li>
+          <li><span>黑料内容板块分类说明</span><span class="no">02</span></li>
+          <li><span>在线入口状态核对清单</span><span class="tag">更新中</span></li>
+          <li><span>访问异常的自查步骤</span><span class="no">04</span></li>
+        </ul>
+        <p class="note">速览内容按栏目整理，具体条目与状态以本页入口目录为准。遇到无法打开的情况，请先查看“查看指南”中的自查步骤。</p>
+      </aside>
+    </div>
+  </div>
+
+  <!-- 今日速览 -->
+  <section id="today">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">Today</div>
+        <h2>每日大赛黑料在线入口今日速览</h2>
+        <p>访问者最常关心的三件事是：今天有哪些内容板块、入口是否可用、以及从哪一步开始看。下面把这三类信息分开说明，避免混淆。</p>
+      </div>
+      <div class="grid-3">
+        <article class="card">
+          <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="#ffb638" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="7" y="10" width="34" height="30" rx="4"/><path d="M7 19h34M16 6v7M32 6v7"/>
+          </svg>
+          <h3>日程与场次</h3>
+          <p>大赛按场次推进，每个场次对应独立的讨论主题。先确认场次编号，再进入对应的内容板块，可以减少在大量条目中翻找的时间。</p>
+          <ul>
+            <li>按场次编号定位内容</li>
+            <li>同一场次内容集中呈现</li>
+          </ul>
+        </article>
+        <article class="card">
+          <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="#ff5a5f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M24 6l16 8v10c0 10-7 16-16 18C15 40 8 34 8 24V14z"/><path d="M17 24l5 5 9-10"/>
+          </svg>
+          <h3>内容板块</h3>
+          <p>黑料内容按主题分为若干板块，每类板块的说明写在入口条目的描述中。查看前先读描述，能判断该条目是否与你想看的内容一致。</p>
+          <ul>
+            <li>板块描述说明内容范围</li>
+            <li>状态标签标注可用性</li>
+          </ul>
+        </article>
+        <article class="card">
+          <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="#3ddc97" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="24" cy="24" r="18"/><path d="M24 14v12l8 5"/>
+          </svg>
+          <h3>入口状态</h3>
+          <p>入口目录中的每条记录都带有状态标记，分为可用与整理中两类。状态会随核对结果调整，访问前请以目录中显示的最新标记为准。</p>
+          <ul>
+            <li>可用：可直接前往</li>
+            <li>整理中：条目仍在补充</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 查看指南 -->
+  <section id="guide" style="background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">Guide</div>
+        <h2>每日大赛黑料在线入口查看指南</h2>
+        <p>把访问过程拆成四步，按顺序执行即可。若某一步没有顺利通过，先回到上一步检查，再决定是否继续。</p>
+      </div>
+      <div class="split">
+        <ol class="steps">
+          <li><b>确认栏目与场次</b><span>在今日速览中确认当前场次与内容板块，记下对应的编号，后续查找更快。</span></li>
+          <li><b>阅读入口描述</b><span>入口目录里每条记录都写明了内容范围与适用场景，先读描述再点击，避免进入不相关的条目。</span></li>
+          <li><b>核对状态标记</b><span>状态为“可用”的条目可直接前往；“整理中”的条目内容仍在补充，建议稍后再看。</span></li>
+          <li><b>遇到异常先自查</b><span>无法打开时，先检查网络、浏览器版本与页面缓存，再查看公告中的说明，不要重复刷新。</span></li>
+        </ol>
+        <div class="panel">
+          <h3>访问前的准备清单</h3>
+          <dl class="qa">
+            <dt>使用较新版本的浏览器</dt>
+            <dd>旧版本浏览器可能无法正常渲染页面，更新后再访问更稳妥。</dd>
+          </dl>
+          <dl class="qa">
+            <dt>保持网络连接稳定</dt>
+            <dd>内容条目较多，网络波动会影响加载，建议在网络稳定的环境访问。</dd>
+          </dl>
+          <dl class="qa">
+            <dt>记录遇到的问题</dt>
+            <dd>记下出错的时间与页面名称，便于对照公告或后续核对。</dd>
+          </dl>
+          <dl class="qa">
+            <dt>合理控制浏览时间</dt>
+            <dd>内容消耗量大，建议分段浏览，避免长时间连续访问。</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 入口目录 -->
+  <section id="entries">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">Directory</div>
+        <h2>每日大赛黑料在线入口目录</h2>
+        <p>按内容板块筛选，或输入关键词查找条目。目录中的条目描述说明了各自的内容范围，状态标记反映当前可用情况。</p>
+      </div>
+
+      <div class="search-box">
+        <input id="q" type="search" placeholder="输入板块名称或场次关键词，例如：场次、回放、讨论" aria-label="搜索入口条目">
+        <button id="searchBtn" type="button">查找</button>
+      </div>
+
+      <div class="filter-bar" role="group" aria-label="按板块筛选">
+        <button class="chip active" data-cat="all">全部</button>
+        <button class="chip" data-cat="schedule">赛程速览</button>
+        <button class="chip" data-cat="board">内容板块</button>
+        <button class="chip" data-cat="replay">回顾整理</button>
+        <button class="chip" data-cat="help">使用帮助</button>
+      </div>
+
+      <div class="entry-grid" id="entryGrid">
+        <article class="entry" data-cat="schedule" data-key="赛程 场次 日程">
+          <div class="top"><h4>赛程与场次速览</h4><span class="st">可用</span></div>
+          <p>按场次编号整理的日程条目，说明每一场的时间与主题，适合先建立整体印象。</p>
+          <div class="meta"><span>赛程速览</span><span>条目 01</span></div>
+        </article>
+        <article class="entry" data-cat="schedule" data-key="场次 编号 对照">
+          <div class="top"><h4>场次编号对照</h4><span class="st">可用</span></div>
+          <p>把场次编号与讨论主题一一对应，便于在内容板块中快速定位。</p>
+          <div class="meta"><span>赛程速览</span><span>条目 02</span></div>
+        </article>
+        <article class="entry" data-cat="board" data-key="内容 板块 主题">
+          <div class="top"><h4>内容板块索引</h4><span class="st">可用</span></div>
+          <p>汇总各类黑料内容板块及其说明，是每日大赛黑料在线入口中最常被访问的部分。</p>
+          <div class="meta"><span>内容板块</span><span>条目 03</span></div>
+        </article>
+        <article class="entry" data-cat="board" data-key="讨论 话题 汇总">
+          <div class="top"><h4>热门讨论汇总</h4><span class="st">可用</span></div>
+          <p>整理当日讨论较为集中的话题，附简要说明，帮助判断是否值得进一步查看。</p>
+          <div class="meta"><span>内容板块</span><span>条目 04</span></div>
+        </article>
+        <article class="entry" data-cat="board" data-key="条目 更新 整理">
+          <div class="top"><h4>条目更新记录</h4><span class="st pending">整理中</span></div>
+          <p>记录板块内条目的新增与调整情况，内容仍在补充，完整记录稍后公布。</p>
+          <div class="meta"><span>内容板块</span><span>条目 05</span></div>
+        </article>
+        <article class="entry" data-cat="replay" data-key="回顾 整理 往期">
+          <div class="top"><h4>往期内容回顾</h4><span class="st">可用</span></div>
+          <p>按时间顺序整理此前的场次内容，适合补看错过的部分。</p>
+          <div class="meta"><span>回顾整理</span><span>条目 06</span></div>
+        </article>
+        <article class="entry" data-cat="replay" data-key="精选 摘要 汇编">
+          <div class="top"><h4>精选内容摘要</h4><span class="st pending">整理中</span></div>
+          <p>从往期内容中摘出有代表性的部分，汇编工作仍在进行，条目会逐步补齐。</p>
+          <div class="meta"><span>回顾整理</span><span>条目 07</span></div>
+        </article>
+        <article class="entry" data-cat="help" data-key="使用 帮助 说明">
+          <div class="top"><h4>使用说明与帮助</h4><span class="st">可用</span></div>
+          <p>说明目录的筛选方式、状态含义与常见异常的处理步骤，首次访问建议先读。</p>
+          <div class="meta"><span>使用帮助</span><span>条目 08</span></div>
+        </article>
+        <article class="entry" data-cat="help" data-key="反馈 问题 记录">
+          <div class="top"><h4>问题反馈记录</h4><span class="st">可用</span></div>
+          <p>汇总访问者反馈的常见问题与处理结果，可作为排查参考。</p>
+          <div class="meta"><span>使用帮助</span><span>条目 09</span></div>
+        </article>
+        <div class="empty" id="emptyTip" hidden>没有找到匹配的条目，换一个关键词试试，或点击“全部”查看完整目录。</div>
+      </div>
+
+      <div class="hero-actions" style="margin-top:30px">
+        <a class="btn-primary" href="#entries">重新浏览目录</a>
+        <a class="btn-ghost" href="#" data-download-placeholder="true" aria-disabled="true" tabindex="-1" style="pointer-events:none">下载</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" style="background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">FAQ</div>
+        <h2>关于每日大赛黑料在线入口的常见问题</h2>
+        <p>以下问题来自访问过程中较常出现的情况，回答只针对本页所整理的内容范围。</p>
+      </div>
+      <div class="grid-3">
+        <article class="card">
+          <h3>入口每天都会更新吗？</h3>
+          <p>目录会按核对结果调整状态与描述，更新频率受整理进度影响，并非固定时刻。以条目上显示的状态标记为准。</p>
+        </article>
+        <article class="card">
+          <h3>状态显示“整理中”还能看吗？</h3>
+          <p>“整理中”表示该条目的内容仍在补充，可能缺少部分说明。建议先查看同板块内状态为“可用”的条目。</p>
+        </article>
+        <article class="card">
+          <h3>搜索没有结果怎么办？</h3>
+          <p>换用更短的关键词，例如只输入“场次”或“回顾”，再配合板块筛选缩小范围。也可以点击“全部”重新浏览。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 公告 -->
+  <section id="notice">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">Notice</div>
+        <h2>入口更新与维护公告</h2>
+        <p>公告记录目录的调整情况，便于访问者了解条目状态变化的原因。</p>
+      </div>
+      <div class="notice-list">
+        <div class="notice">
+          <time>条目整理</time>
+          <p><b>内容板块索引条目补充说明文字。</b>为便于判断内容范围，部分条目增加了描述，条目编号与板块分类保持不变。</p>
+        </div>
+        <div class="notice">
+          <time>状态核对</time>
+          <p><b>状态标记完成一轮核对。</b>可用与整理中的标记按当前整理进度更新，后续仍会随补充情况调整。</p>
+        </div>
+        <div class="notice">
+          <time>使用说明</time>
+          <p><b>查看指南新增自查步骤。</b>针对无法打开的情况，补充了网络、浏览器与缓存三项检查顺序。</p>
+        </div>
+      </div>
+      <div class="panel" style="margin-top:28px">
+        <h3>继续浏览</h3>
+        <p style="font-size:14px;color:var(--sub)">想从整体了解，可回到<a href="#today" style="color:var(--acc)">今日速览</a>；需要按步骤操作，可查看<a href="#guide" style="color:var(--acc)">查看指南</a>；直接找条目，则前往<a href="#entries" style="color:var(--acc)">入口目录</a>。每日大赛黑料在线入口的相关信息均以本页各栏目为准。</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <div class="logo" style="margin-bottom:14px">
+          <svg class="mark" viewBox="0 0 64 64" aria-hidden="true">
+            <rect width="64" height="64" rx="14" fill="#1c2334"/>
+            <path d="M18 44l11-24 8 15 6-10 5 19z" fill="#ffb638"/>
+            <circle cx="45" cy="21" r="4.5" fill="#ff5a5f"/>
+          </svg>
+          <span>每日大赛黑料在线入口</span>
+        </div>
+        <p>整理大赛相关内容板块与入口信息，提供速览、指南与状态说明，帮助访问者按步骤找到所需内容。</p>
+      </div>
+      <div>
+        <h4>页面栏目</h4>
+        <ul>
+          <li><a href="#today">今日速览</a></li>
+          <li><a href="#guide">查看指南</a></li>
+          <li><a href="#entries">入口目录</a></li>
+          <li><a href="#faq">常见问题</a></li>
+          <li><a href="#notice">更新公告</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>使用提示</h4>
+        <ul>
+          <li>以条目状态标记为准</li>
+          <li>遇到异常先按指南自查</li>
+          <li>合理安排浏览时间</li>
+          <li>条目描述说明内容范围</li>
+        </ul>
+      </div>
+    </div>
+    <div class="copy">
+      <span>每日大赛黑料在线入口 · 内容导航页</span>
+      <span>页面信息随整理进度调整</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var menuBtn=document.getElementById('menuBtn');
+  var navList=document.getElementById('navList');
+  menuBtn.addEventListener('click',function(){
+    var open=navList.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded',open?'true':'false');
+  });
+  navList.addEventListener('click',function(e){
+    if(e.target.tagName==='A'){navList.classList.remove('open');menuBtn.setAttribute('aria-expanded','false');}
+  });
+
+  var chips=Array.prototype.slice.call(document.querySelectorAll('.chip'));
+  var entries=Array.prototype.slice.call(document.querySelectorAll('.entry'));
+  var emptyTip=document.getElementById('emptyTip');
+  var q=document.getElementById('q');
+  var activeCat='all';
+
+  function apply(){
+    var kw=(q.value||'').trim().toLowerCase();
+    var shown=0;
+    entries.forEach(function(el){
+      var okCat=(activeCat==='all'||el.getAttribute('data-cat')===activeCat);
+      var key=el.getAttribute('data-key')+' '+el.textContent;
+      var okKw=!kw||key.toLowerCase().indexOf(kw)>-1;
+      var show=okCat&&okKw;
+      el.style.display=show?'':'none';
+      if(show)shown++;
+    });
+    emptyTip.hidden=shown>0;
+  }
+
+  chips.forEach(function(c){
+    c.addEventListener('click',function(){
+      chips.forEach(function(x){x.classList.remove('active');});
+      c.classList.add('active');
+      activeCat=c.getAttribute('data-cat');
+      apply();
+    });
+  });
+
+  document.getElementById('searchBtn').addEventListener('click',apply);
+  q.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();apply();}});
+  q.addEventListener('input',apply);
+})();
+</script>
+</body>
+                                                                               </html>
